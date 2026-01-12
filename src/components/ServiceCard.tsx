@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { ImageIcon } from "lucide-react";
+import Link from "next/link";
 
 interface Service {
   title: string;
@@ -75,7 +76,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
             {service.content}
           </p>
 
-          <a
+          <Link
             href={service.viewWorkLink}
             className="inline-flex items-center gap-2 font-medium text-white hover:underline"
           >
@@ -94,7 +95,7 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
                 strokeLinejoin="round"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>

@@ -223,7 +223,7 @@ export const siteConfig: SiteConfig = {
           "Infrastructure and crowd monitoring is fragmented and reactive. OMNI VISION helps operators detect anomalies, congestion, and safety risks early using AI-powered video analytics.",
         techStack:
           "YOLO-based vision models, Python, FastAPI, Kafka, cloud-native microservices, React dashboards.",
-        viewWorkLink: "https://neuradyne.in/omni-vision",
+        viewWorkLink: "/omnivision",
       },
       {
         title: "AI Question Generation",
