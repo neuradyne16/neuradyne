@@ -1,7 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Services } from "@/components/Services";
-import { Blog } from "@/components/Blog";
-import { Activities } from "@/components/Activities";
+import { BlogSection } from "@/components/BlogSection";
+import { ActivitiesSection } from "@/components/ActivitiesSection";
 import { CarouselPlugin } from "@/components/ProductCarousel";
 
 export default function Home() {
@@ -10,8 +10,8 @@ export default function Home() {
       <Hero />
       <Services />
       <CarouselPlugin />
-      <Blog />
-      <Activities />
+      <BlogSection />
+      <ActivitiesSection />
     </div>
   );
 }
