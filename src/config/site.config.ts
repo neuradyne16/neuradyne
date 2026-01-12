@@ -198,7 +198,11 @@ export const siteConfig: SiteConfig = {
       },
       {
         label: "Activity",
-        href: "/#activities",
+        href: "/activities",
+      },
+      {
+        label: "Blogs",
+        href: "/blogs",
       },
     ],
   },
@@ -310,21 +314,21 @@ export const siteConfig: SiteConfig = {
         image: mcpimage,
         content:
           "Description of the first activity. Share details about what this activity involves and its impact.",
-        readMoreLink: "#activity-1",
+        readMoreLink: "/activities/activity-title-1",
       },
       {
         title: "Activity Title 2",
         image: ac2,
         content:
           "Description of the second activity. Explain the purpose and outcomes of this initiative.",
-        readMoreLink: "#activity-2",
+        readMoreLink: "/activities/activity-title-2",
       },
       {
         title: "Activity Title 3",
         image: ac3,
         content:
           "Description of the third activity. Provide information about this activity and its significance.",
-        readMoreLink: "#activity-3",
+        readMoreLink: "/activities/activity-title-3",
       },
     ],
   },
@@ -570,10 +574,10 @@ export const siteConfig: SiteConfig = {
       enabled: true,
       heading: "Connect With Us",
       links: {
-        twitter: "#twitter",
-        linkedin: "#linkedin",
-        github: "#github",
-        instagram: "#instagram",
+        twitter: "https://www.x.com/neuradyne",
+        linkedin: "https://www.linkedin.com/in/neuradyne",
+        github: "https://www.github.com/neuradyne16",
+        instagram: "https://www.instagram.com/neuradynesolutions",
       },
     },
     cta: {
