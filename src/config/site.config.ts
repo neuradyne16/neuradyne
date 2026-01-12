@@ -26,6 +26,17 @@ export interface SiteConfig {
       viewWorkLink: string;
     }>;
   };
+  productCarousel: {
+    title: string;
+    items: Array<{
+      title: string;
+      image?: StaticImageData;
+      content: string;
+      // Optional description of tech stack used for this service
+      techStack?: string;
+      viewWorkLink: string;
+    }>;
+  };
   partners: {
     title: string;
     logos: Array<{
@@ -178,12 +189,16 @@ export const siteConfig: SiteConfig = {
     logoAlt: "Company Logo",
     navLinks: [
       {
+        label: "Home",
+        href: "/",
+      },
+      {
         label: "About Us",
         href: "/about",
       },
       {
-        label: "Contact Us",
-        href: "/contact",
+        label: "Activity",
+        href: "/#activities",
       },
     ],
   },
@@ -225,6 +240,32 @@ export const siteConfig: SiteConfig = {
         viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
       },
     ],
+  },
+  productCarousel : {
+    title: "Our Products",
+    items :[
+      {
+        title: "OMNI VISION",
+        image: serviceImage,
+        content:
+          "AI-powered video analytics for infrastructure and crowd monitoring, enabling early detection of anomalies and safety risks.",
+        viewWorkLink: "https://neuradyne.in/omni-vision",
+      },
+      {
+        title: "AI Question Generation",
+        image: questionimage,
+        content:
+          "Automated question generation engine that creates high-quality, diverse assessments from source material.",
+        viewWorkLink: "https://neuradyne.in/ai-question-generation",
+      },
+      {
+        title: "MCP",
+        image: mcpimage,
+        content:
+          "End-to-end MVP and product engineering service that transforms ideas into deployable AI products quickly and safely.",
+        viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
+      }
+    ]
   },
   partners: {
     title: "Partners",
@@ -326,16 +367,16 @@ export const siteConfig: SiteConfig = {
         title: "Socials",
         links: [
           {
-            label: "Twitter",
-            href: "#twitter",
+            label: "X",
+            href: "https://www.x.com/neuradyne",
           },
           {
             label: "Instagram",
-            href: "#instagram",
+            href: "https://www.instagram.com/neuradynesolutions",
           },
           {
             label: "LinkedIn",
-            href: "#linkedin",
+            href: "https://www.linkedin.com/in/neuradyne",
           },
         ],
       },

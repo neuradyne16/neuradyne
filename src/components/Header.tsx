@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site.config";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ModeToggle } from "./ModeToggle";
+import Link from "next/link";
 
 export const Header = () => {
   const { header } = siteConfig;
@@ -28,7 +29,7 @@ export const Header = () => {
           <div className="py-2.5 px-4">
             <div className="flex items-center justify-between gap-4">
               {/* Logo */}
-              <a
+              <Link
                 href="/"
                 className="cursor-pointer hover:opacity-80 transition-opacity"
               >
@@ -40,12 +41,12 @@ export const Header = () => {
                   priority
                   loading="eager"
                 />
-              </a>
+              </Link>
 
               {/* Desktop Navigation */}
               <nav className="hidden md:flex gap-5 items-center text-black/60 dark:text-white/80">
                 {header.navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
                     className="
@@ -66,11 +67,11 @@ export const Header = () => {
                         group-hover:w-full
                       "
                     />
-                  </a>
+                  </Link>
                 ))}
 
                 {/* CTA */}
-                <a
+                <Link
                   href="/contact"
                   className="
                     group relative overflow-hidden
@@ -90,15 +91,7 @@ export const Header = () => {
                     Get In Touch
                   </span>
 
-                  <span
-                    className="
-                      absolute inset-0 rounded-md
-                      bg-white/20 dark:bg-black/20
-                      scale-0 transition-transform duration-500 ease-out
-                      group-hover:scale-100 group-hover:opacity-0
-                    "
-                  />
-                </a>
+                </Link>
 
                 <ModeToggle />
               </nav>
@@ -187,14 +180,6 @@ export const Header = () => {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="relative z-10">Get In Touch</span>
-                      <span
-                        className="
-                          absolute inset-0 rounded-md
-                          bg-white/20 dark:bg-black/20
-                          scale-0 transition-transform duration-500 ease-out
-                          group-hover:scale-100 group-hover:opacity-0
-                        "
-                      />
                     </motion.a>
                   </div>
                 </motion.nav>

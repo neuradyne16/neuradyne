@@ -48,6 +48,7 @@ export const Activities = () => {
 
   return (
     <section
+      id="activities"
       className="
         py-24
         bg-[radial-gradient(ellipse_200%100%_at_bottom_left,#7DD3FC,_#F0F9FD_100%)]

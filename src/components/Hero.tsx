@@ -75,18 +75,8 @@ export const Hero = () => {
         </div>
 
         {/* Partners Section */}
-        <div
-          className="
-            mt-16 -mx-5 lg:-mx-20 px-5 lg:px-20 py-12
-            bg-gradient-to-b
-            from-transparent
-            via-sky-100
-            to-white
-            dark:via-gray-900
-            dark:to-black
-          "
-        >
-          <div className="text-center mb-8">
+        <div className="mt-16">
+          <div className="text-center mb-6">
             <h2
               className="
                 text-2xl md:text-3xl font-bold
@@ -99,51 +89,46 @@ export const Hero = () => {
           </div>
 
           <div
-            className="flex overflow-hidden"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent, black, transparent)",
-            }}
+            className="
+              -mx-5 lg:-mx-20 px-5 lg:px-20 py-6
+              bg-white dark:bg-gray-300
+            "
           >
-            <motion.div
-              className="flex gap-14 flex-none pr-14"
-              animate={{ translateX: "-50%" }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear",
-                repeatType: "loop",
+            <div
+              className="flex overflow-hidden"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent, black, transparent)",
               }}
             >
-              {partners.logos.map((logo, index) => (
-                <Image
-                  key={index}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="
-                    logo-ticker-image
-                    dark:invert
-                    dark:brightness-125
-                    dark:contrast-125
-                    dark:drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]
-                  "
-                />
-              ))}
-              {partners.logos.map((logo, index) => (
-                <Image
-                  key={`duplicate-${index}`}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="
-                    logo-ticker-image
-                    dark:invert
-                    dark:brightness-125
-                    dark:contrast-125
-                    dark:drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]
-                  "
-                />
-              ))}
-            </motion.div>
+              <motion.div
+                className="flex gap-16 flex-none pr-16 items-center"
+                animate={{ translateX: "-50%" }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatType: "loop",
+                }}
+              >
+                {partners.logos.map((logo, index) => (
+                  <Image
+                    key={index}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="logo-ticker-image h-12 w-auto object-contain"
+                  />
+                ))}
+                {partners.logos.map((logo, index) => (
+                  <Image
+                    key={`duplicate-${index}`}
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="logo-ticker-image h-12 w-auto object-contain"
+                  />
+                ))}
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
