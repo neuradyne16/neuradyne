@@ -171,7 +171,7 @@ import logo from "@/assets/logo.png";
 import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
 import logoAcme from "@/assets/logo-acme.png";
-import iitb from "@/assets/rep-logo.png"
+import iitb from "@/assets/rep-logo.png";
 import logoQuantum from "@/assets/logo-quantum.png";
 import logoEcho from "@/assets/logo-echo.png";
 import logoCelestial from "@/assets/logo-celestial.png";
@@ -232,7 +232,7 @@ export const siteConfig: SiteConfig = {
           "Institutions struggle to generate high-quality, diverse questions at scale. Our AI Question Generation engine turns source material into assessments tailored by difficulty and topic.",
         techStack:
           "Large language models, Python, LangChain, vector databases, Next.js frontends, cloud orchestration.",
-        viewWorkLink: "https://neuradyne.in/ai-question-generation",
+        viewWorkLink: "/AIquestionGen",
       },
       {
         title: "MCP",
@@ -245,9 +245,9 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-  productCarousel : {
+  productCarousel: {
     title: "Our Products",
-    items :[
+    items: [
       {
         title: "OMNI VISION",
         image: serviceImage,
@@ -268,8 +268,8 @@ export const siteConfig: SiteConfig = {
         content:
           "End-to-end MVP and product engineering service that transforms ideas into deployable AI products quickly and safely.",
         viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
-      }
-    ]
+      },
+    ],
   },
   partners: {
     title: "Partners",
