@@ -171,7 +171,7 @@ import logo from "@/assets/logo.png";
 import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
 import logoAcme from "@/assets/logo-acme.png";
-import iitb from "@/assets/rep-logo.png"
+import iitb from "@/assets/rep-logo.png";
 import logoQuantum from "@/assets/logo-quantum.png";
 import logoEcho from "@/assets/logo-echo.png";
 import logoCelestial from "@/assets/logo-celestial.png";
@@ -245,32 +245,33 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-  productCarousel : {
-    title: "Our Products",
-    items :[
+  productCarousel: {
+    title: "Problem statements",
+    items: [
       {
         title: "OMNI VISION",
         image: serviceImage,
         content:
-          "AI-powered video analytics for infrastructure and crowd monitoring, enabling early detection of anomalies and safety risks.",
+          "Problem Statement: Lack of real-time visual monitoring leads to delayed detection of accidents, potholes, and fallen-tree obstructions on roads. Solution: Omni Vision uses AI-based computer vision to automatically detect these incidents in real time, enabling faster response and improved public safety.",
         viewWorkLink: "https://neuradyne.in/omni-vision",
       },
       {
         title: "AI Question Generation",
         image: questionimage,
         content:
-          "Automated question generation engine that creates high-quality, diverse assessments from source material.",
+          "Problem Statement: Creating large sets of diverse, high-quality questions manually from textbooks or learning material is time-consuming and often lacks variety and depth. Solution: An automated AI-driven question generation engine that converts source material into structured, diverse assessments across difficulty levels, reducing educator workload while improving evaluation quality and coverage.",
         viewWorkLink: "https://neuradyne.in/ai-question-generation",
       },
       {
         title: "MCP",
         image: mcpimage,
         content:
-          "End-to-end MVP and product engineering service that transforms ideas into deployable AI products quickly and safely.",
+          "Problem Statement: Teams with strong ideas struggle to convert them into working AI products due to lack of technical expertise, long development cycles, and deployment challenges. Solution: A comprehensive MVP and product engineering service that rapidly converts ideas into functional, deployable AI products with focus on safety, scalability, and real-world usability.",
         viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
-      }
-    ]
+      },
+    ],
   },
+
   partners: {
     title: "Partners",
     logos: [
