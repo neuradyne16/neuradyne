@@ -161,7 +161,7 @@ export const aiQuestionGenConfig: AIQuestionGenConfig = {
     buttons: [
       {
         text: "Book a Demo",
-        href: "/contact?demo=ai-question-generator",
+        href: "/demo/ai-question-generator",
         variant: "primary",
       },
       {

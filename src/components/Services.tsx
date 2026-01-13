@@ -39,7 +39,7 @@ export const Services = () => {
   const canGoNext = currentIndex < maxIndex;
 
   return (
-    <section className="py-24 bg-white dark:bg-black">
+    <section id="products" className="py-24 bg-white dark:bg-black">
       <div className="container">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
           {services.title}

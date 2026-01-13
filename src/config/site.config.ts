@@ -193,16 +193,16 @@ export const siteConfig: SiteConfig = {
         href: "/",
       },
       {
+        label : "Products",
+        href : "/#products"
+      },
+      {
         label: "About Us",
         href: "/about",
       },
       {
         label: "Activity",
         href: "/activities",
-      },
-      {
-        label: "Blogs",
-        href: "/blogs",
       },
     ],
   },

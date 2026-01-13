@@ -183,7 +183,7 @@ export const omniVisionConfig: OmniVisionConfig = {
       subtitle: "Experience Omni Vision in Action.",
       demoText: "Book a live demo for your city.",
       buttonText: "BOOK NOW",
-      buttonLink: "/contact?demo=omni-vision",
+      buttonLink: "/demo/omni-vision",
     },
   },
 };
