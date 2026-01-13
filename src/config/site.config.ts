@@ -171,7 +171,7 @@ import logo from "@/assets/logo.png";
 import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
 import logoAcme from "@/assets/logo-acme.png";
-import iitb from "@/assets/rep-logo.png";
+import iitb from "@/assets/rep-logo.png"
 import logoQuantum from "@/assets/logo-quantum.png";
 import logoEcho from "@/assets/logo-echo.png";
 import logoCelestial from "@/assets/logo-celestial.png";
@@ -223,7 +223,7 @@ export const siteConfig: SiteConfig = {
           "Infrastructure and crowd monitoring is fragmented and reactive. OMNI VISION helps operators detect anomalies, congestion, and safety risks early using AI-powered video analytics.",
         techStack:
           "YOLO-based vision models, Python, FastAPI, Kafka, cloud-native microservices, React dashboards.",
-        viewWorkLink: "https://neuradyne.in/omni-vision",
+        viewWorkLink: "/omnivision",
       },
       {
         title: "AI Question Generation",
@@ -232,7 +232,7 @@ export const siteConfig: SiteConfig = {
           "Institutions struggle to generate high-quality, diverse questions at scale. Our AI Question Generation engine turns source material into assessments tailored by difficulty and topic.",
         techStack:
           "Large language models, Python, LangChain, vector databases, Next.js frontends, cloud orchestration.",
-        viewWorkLink: "https://neuradyne.in/ai-question-generation",
+        viewWorkLink: "/AIquestionGen",
       },
       {
         title: "MCP",
@@ -245,9 +245,9 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-  productCarousel: {
-    title: "Problem statements",
-    items: [
+  productCarousel : {
+    title: "Our Products",
+    items :[
       {
         title: "OMNI VISION",
         image: serviceImage,
