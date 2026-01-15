@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import mcpimage from "@/assets/mcp.jpg";
+import omnivision from "@/assets/omnivision.jpg";
 import ac2 from "@/assets/activity2.jpg";
 import ac3 from "@/assets/activity3.jpg";
 
@@ -45,7 +46,7 @@ Through this activity, we've been able to demonstrate the power of combining cut
 The results speak for themselves. We've seen significant improvements in efficiency, cost reduction, and overall satisfaction. This activity has not only benefited our clients but has also provided valuable insights that inform our future work.
 
 We're excited to continue building on this foundation and exploring new opportunities to create value for our clients and partners.`,
-      image: mcpimage,
+      image: omnivision,
       date: "2024-01-20",
       location: "Bhubaneswar, India",
     },
