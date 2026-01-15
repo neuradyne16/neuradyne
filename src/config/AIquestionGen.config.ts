@@ -103,7 +103,7 @@ export const aiQuestionGenConfig: AIQuestionGenConfig = {
       },
       {
         value: "1.7 Cr",
-        href: "https://www.indiatoday.in/education-today/featurephilia/story/paper-leaks-in-india-over-17-crore-aspirants-affected-in-7-years-2555716-2024-06-20?utm_source=chatgpt.com",
+        href: "https://www.indiatoday.in/education-today/featurephilia/story/paper-leaks-in-india-over-17-crore-aspirants-affected-in-7-years-2555716-2024-06-20",
         label: "Candidates Affected since 2024",
       },
     ],
