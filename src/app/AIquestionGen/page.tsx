@@ -179,7 +179,6 @@ export default function AIQuestionGeneratorPage() {
           >
             {config.hero.ssstitle}
           </motion.p> */}
-
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 md:mb-8 px-4"

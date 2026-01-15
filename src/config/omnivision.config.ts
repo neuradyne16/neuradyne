@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import OmniVisionImage from "@/assets/pexels-pixabay-158826.jpg";
+import OmniVisionImage from "@/assets/omnivision.jpg";
 
 export interface OmniVisionConfig {
   hero: {
@@ -8,7 +8,7 @@ export interface OmniVisionConfig {
     image: StaticImageData;
     backgroundColor?: string;
   };
-  
+
   problem: {
     title: string;
     subtitle: string;
@@ -26,7 +26,7 @@ export interface OmniVisionConfig {
     };
     sourceNote?: string;
   };
-  
+
   problemNumbers: {
     title: string;
     cards: Array<{
@@ -37,7 +37,7 @@ export interface OmniVisionConfig {
     }>;
     sourceNote?: string;
   };
-  
+
   solution: {
     title: string;
     subtitle: string;
@@ -47,13 +47,13 @@ export interface OmniVisionConfig {
       description: string;
     }>;
   };
-  
+
   demoPhone: {
     enabled: boolean;
     buttonText: string;
     description: string;
   };
-  
+
   cta: {
     getInTouch: {
       enabled: boolean;
