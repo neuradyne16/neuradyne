@@ -162,6 +162,24 @@ export default function AIQuestionGeneratorPage() {
             {config.hero.subtitle}
           </motion.p>
 
+          {/* <motion.p
+            className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-6 md:mb-8 px-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {config.hero.subsubtitle}
+          </motion.p>
+
+          <motion.p
+            className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-6 md:mb-8 px-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {config.hero.ssstitle}
+          </motion.p> */}
+
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 md:mb-8 px-4"
