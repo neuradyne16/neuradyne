@@ -246,10 +246,11 @@ export default function AIQuestionGeneratorPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-4 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-4 px-4 cursor-pointer">
             {config.problem.stats.map((stat, idx) => (
               <motion.div
                 key={idx}
+                onClick={() => window.open(stat.href, "_blank")}
                 className="bg-gray-200 dark:bg-gray-800 p-6 md:p-8 rounded-xl text-center shadow-lg"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

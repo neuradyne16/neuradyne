@@ -22,6 +22,7 @@ export interface AIQuestionGenConfig {
     stats: Array<{
       value: string;
       label: string;
+      href: string;
     }>;
     sourceNote: string;
   };
@@ -91,15 +92,18 @@ export const aiQuestionGenConfig: AIQuestionGenConfig = {
     subtitle: "Why Exam Paper Leaks Happen?",
     stats: [
       {
-        value: "76",
+        value: "70",
+        href: "https://www.indiatoday.in/education-today/featurephilia/story/paper-leaks-in-india-over-17-crore-aspirants-affected-in-7-years-2555716-2024-06-20",
         label: "Leaks (2021-2025)",
       },
       {
         value: "48",
-        label: "Retests Conducted (past 10 years)",
+        href: "https://www.newslaundry.com/2024/07/31/10-years-89-paper-leak-cases-48-retests-from-centre-to-states-few-plugs-for-a-leaky-record",
+        label: "Re-tests Conducted (past 10 years)",
       },
       {
-        value: "6.5 Cr",
+        value: "1.7 Cr",
+        href: "https://www.indiatoday.in/education-today/featurephilia/story/paper-leaks-in-india-over-17-crore-aspirants-affected-in-7-years-2555716-2024-06-20?utm_source=chatgpt.com",
         label: "Candidates Affected since 2024",
       },
     ],

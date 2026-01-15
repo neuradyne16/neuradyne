@@ -34,6 +34,7 @@ export interface OmniVisionConfig {
       label: string;
       sublabel?: string;
       icon?: string;
+      href?: string;
     }>;
     sourceNote?: string;
   };
@@ -113,27 +114,31 @@ export const omniVisionConfig: OmniVisionConfig = {
     title: "Threats to Road Safety in India",
     cards: [
       {
-        value: "8,12,365",
+        value: "7,77,423",
         label: "Deaths Due to Car Accidents",
-        sublabel: "2021-2025",
+        sublabel: "2018-2022",
+        href: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2036268&reg=3&lang=2",
         icon: "accident",
       },
       {
         value: "6200+",
         label: "Deaths Due to Potholes",
         sublabel: "2021-2025",
+        href: "https://timesofindia.indiatimes.com/india/potholes-claimed-2161-lives-in-2023-wrong-side-driving-9432/articleshow/123569966.cms",
         icon: "pothole",
       },
       {
         value: "50-70",
         label: "Deaths Due to Fallen Trees",
         sublabel: "2021-2025",
+        href: "https://timesofindia.indiatimes.com/city/nashik/over-400-trees-uprooted-in-nashik-city-civic-bocy-starts-trimming-of-branches-of-risky-trees/articleshow/121146368.cms",
         icon: "tree",
       },
       {
         value: "8,07,800",
         label: "Deaths Due to Open Pits & Road Hazards",
         sublabel: "2021–2025",
+        href: "https://vajiramandravi.com/current-affairs/indias-road-accidents-2024-fatalities-rise-despite-state-level-gains",
         icon: "hazard",
       },
     ],
