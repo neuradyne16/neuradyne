@@ -17,13 +17,6 @@ export interface OmniVisionConfig {
       label: string;
       icon?: string;
     }>;
-    liveToll: {
-      enabled: boolean;
-      title: string;
-      deaths: number;
-      injuries: number;
-      timeframe: string;
-    };
     sourceNote?: string;
   };
 
@@ -100,13 +93,6 @@ export const omniVisionConfig: OmniVisionConfig = {
         label: "Injured",
       },
     ],
-    liveToll: {
-      enabled: true,
-      title: "LIVE TOLL",
-      deaths: 50,
-      injuries: 70,
-      timeframe: "Reported Annually (2021–2025)",
-    },
     sourceNote: "*Source: MoRTH – 2022 Official Road Crash Data",
   },
 

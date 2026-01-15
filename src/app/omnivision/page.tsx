@@ -186,7 +186,7 @@ export default function OmniVisionPage() {
                 ))}
               </div>
 
-              {/* Live Toll */}
+              {/* Live Toll
               {config.problem.liveToll.enabled && (
                 <motion.div
                   className="bg-sky-800 dark:bg-blue-700 text-white p-6 rounded-lg shadow-xl"
@@ -231,7 +231,7 @@ export default function OmniVisionPage() {
                     * {config.problem.liveToll.timeframe}
                   </div>
                 </motion.div>
-              )}
+              )} */}
 
               {config.problem.sourceNote && (
                 <p className="text-xs text-gray-600 dark:text-gray-400 mt-4">
