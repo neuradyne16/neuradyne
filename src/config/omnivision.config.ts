@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import OmniVisionImage from "@/assets/pexels-pixabay-158826.jpg"; // Add your image path
+import OmniVisionImage from "@/assets/pexels-pixabay-158826.jpg";
 
 export interface OmniVisionConfig {
   hero: {
@@ -76,98 +76,98 @@ export interface OmniVisionConfig {
 
 export const omniVisionConfig: OmniVisionConfig = {
   hero: {
-    title: "Omni Vision",
-    subtitle: "AI-powered pothole incident response system",
+    title: "OMNI VISION",
+    subtitle: "Smart incident response system",
     image: OmniVisionImage,
     backgroundColor: "bg-gray-100",
   },
-  
+
   problem: {
-    title: "Battling the Pothole Menace",
-    subtitle: "Delivering Rapid Alerts to Authorities to Save Lives.",
+    title: "Battling system with incident menace",
+    subtitle: "Rapid Alerts to Authorities to Save Lives.",
     stats: [
       {
-        value: "15,000+",
-        label: "Accidents / Year",
+        value: "4,61,312",
+        label: "Road Accidents Reported",
       },
       {
-        value: "1,500+",
-        label: "Deaths / Year",
+        value: "3,76,148",
+        label: "People Died",
       },
       {
-        value: "5 to 6 Days",
-        label: "Average Response Time",
+        value: "4,36,217",
+        label: "Injured",
       },
     ],
     liveToll: {
       enabled: true,
       title: "LIVE TOLL",
-      deaths: 52,
-      injuries: 276,
-      timeframe: "Last 5 Days",
+      deaths: 50,
+      injuries: 70,
+      timeframe: "Reported Annually (2021–2025)",
     },
-    sourceNote: "*Government of India's MoRTH Report (2022)",
+    sourceNote: "*Source: MoRTH – 2022 Official Road Crash Data",
   },
-  
+
   problemNumbers: {
-    title: "The Problem in Numbers",
+    title: "Threats to Road Safety in India",
     cards: [
       {
-        value: "15,100+",
-        label: "Pothole Accidents / Year",
-        sublabel: "India (MoRTH)",
+        value: "8,12,365",
+        label: "Deaths Due to Car Accidents",
+        sublabel: "2021-2025",
+        icon: "accident",
+      },
+      {
+        value: "6200+",
+        label: "Deaths Due to Potholes",
+        sublabel: "2021-2025",
         icon: "pothole",
       },
       {
-        value: "1,565",
-        label: "Deaths Annually Due to Potholes*",
-        sublabel: "India (MoRTH)",
-        icon: "death",
+        value: "50-70",
+        label: "Deaths Due to Fallen Trees",
+        sublabel: "2021-2025",
+        icon: "tree",
       },
       {
-        value: "900+",
-        label: "Deaths While Waiting for Repair",
-        sublabel: "",
-        icon: "waiting",
-      },
-      {
-        value: "900+",
-        label: "Deaths While Waiting for Repair",
-        sublabel: "",
-        icon: "repair",
+        value: "8,07,800",
+        label: "Deaths Due to Open Pits & Road Hazards",
+        sublabel: "2021–2025",
+        icon: "hazard",
       },
     ],
-    sourceNote: "*Government of India's MoRTH Report (2022)",
+    sourceNote: "*Government Reports & Audit Data",
   },
-  
+
   solution: {
     title: "The Solution: Snap & Alert",
-    subtitle: "Simply Take A Photo & We'll Handle the Rest.",
+    subtitle: "Smart incident reporting system",
     steps: [
       {
         icon: "camera",
         title: "Snap & Geo-Tag",
-        description: "Click a photo of the pothole.",
+        description: "Click a photo of accident, pothole, fallen tree, etc.",
       },
       {
         icon: "alert",
-        title: "Instant Alert Sent",
-        description: "Notified to Police, Ambulance, Municipal Corporation.",
+        title: "Geo-Tagged Alert Sent",
+        description: "Instantly notified to the right authorities.",
       },
       {
         icon: "response",
-        title: "Faster Response",
-        description: "Quicker Dispatch, Save More Lives.",
+        title: "Auto Notify Authorities",
+        description: "Ambulance, Police, Fire Brigade & Municipality.",
       },
     ],
   },
-  
+
   demoPhone: {
     enabled: true,
-    buttonText: "Snap & Report Pothole",
-    description: "Click & Send! Geo-tagged alerts to authorities.",
+    buttonText: "Snap & Report Hazard",
+    description: "Instant geo-tag alerts sent to authorities.",
   },
-  
+
   cta: {
     getInTouch: {
       enabled: true,
