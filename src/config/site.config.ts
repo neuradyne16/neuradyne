@@ -171,7 +171,7 @@ import logo from "@/assets/logo.png";
 import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
 import logoAcme from "@/assets/logo-acme.png";
-import iitb from "@/assets/rep-logo.png"
+import iitb from "@/assets/rep-logo.png";
 import logoQuantum from "@/assets/logo-quantum.png";
 import logoEcho from "@/assets/logo-echo.png";
 import logoCelestial from "@/assets/logo-celestial.png";
@@ -179,7 +179,7 @@ import logoPulse from "@/assets/logo-pulse.png";
 import logoApex from "@/assets/logo-apex.png";
 import serviceImage from "@/assets/omnivision.jpg";
 import mcpimage from "@/assets/mcp.jpg";
-import questionimage from "@/assets/question.jpg";
+import questionimage from "@/assets/AIgenlogo.jpeg";
 import ac2 from "@/assets/activity2.jpg";
 import ac3 from "@/assets/activity3.jpg";
 
@@ -193,8 +193,8 @@ export const siteConfig: SiteConfig = {
         href: "/",
       },
       {
-        label : "Products",
-        href : "/#products"
+        label: "Products",
+        href: "/#products",
       },
       {
         label: "About Us",
@@ -245,9 +245,9 @@ export const siteConfig: SiteConfig = {
       },
     ],
   },
-  productCarousel : {
+  productCarousel: {
     title: "Our Products",
-    items :[
+    items: [
       {
         title: "OMNI VISION",
         image: serviceImage,

@@ -4,6 +4,8 @@ export interface AIQuestionGenConfig {
   hero: {
     title: string;
     subtitle: string;
+    subsubtitle: string;
+    ssstitle: string;
     buttons: Array<{
       text: string;
       href?: string;
@@ -60,7 +62,9 @@ export interface AIQuestionGenConfig {
 export const aiQuestionGenConfig: AIQuestionGenConfig = {
   hero: {
     title: "AI QUESTION GENERATOR",
-    subtitle: "Generate Secure Exam Questions Just Minutes Before the Exam",
+    subtitle: "Turning Intelligence into Questions.",
+    subsubtitle: "Generate Ultra-Secure Exam Questions",
+    ssstitle: "Just Minutes before the exam",
     buttons: [
       {
         text: "Book a Demo",
@@ -87,16 +91,16 @@ export const aiQuestionGenConfig: AIQuestionGenConfig = {
     subtitle: "Why Exam Paper Leaks Happen?",
     stats: [
       {
-        value: "89",
-        label: "Leaks (Last Decade)",
+        value: "76",
+        label: "Leaks (2021-2025)",
       },
       {
         value: "48",
-        label: "Retests Conducted",
+        label: "Retests Conducted (past 10 years)",
       },
       {
-        value: "6.5 Crore",
-        label: "Candidates Affected",
+        value: "6.5 Cr",
+        label: "Candidates Affected since 2024",
       },
     ],
     sourceNote: "* Source: Newslaundry & India Today Reports",
