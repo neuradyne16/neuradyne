@@ -6,7 +6,7 @@ export interface AIQuestionGenConfig {
     subtitle: string;
     buttons: Array<{
       text: string;
-      href: string;
+      href?: string;
       variant: "primary" | "secondary";
       icon?: string;
     }>;
@@ -69,8 +69,7 @@ export const aiQuestionGenConfig: AIQuestionGenConfig = {
         icon: "play",
       },
       {
-        text: "Watch 60s Video",
-        href: "#video",
+        text: "Watch Video",
         variant: "secondary",
       },
     ],
