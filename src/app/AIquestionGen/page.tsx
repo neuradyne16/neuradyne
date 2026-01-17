@@ -206,7 +206,7 @@ export default function AIQuestionGeneratorPage() {
                   {button.icon === "play" && <PlayIcon />}
                   {button.text}
                 </Link>
-              )
+              ),
             )}
           </motion.div>
 
@@ -400,8 +400,8 @@ export default function AIQuestionGeneratorPage() {
                     button.variant === "primary"
                       ? "bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700 text-white shadow-lg"
                       : button.variant === "secondary"
-                      ? "bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600"
-                      : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
+                        ? "bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600"
+                        : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
                   }
                 `}
               >

@@ -62,7 +62,7 @@ export interface AIQuestionGenConfig {
 
 export const aiQuestionGenConfig: AIQuestionGenConfig = {
   hero: {
-    title: "AI QUESTION GENERATOR",
+    title: "NeuroQ",
     subtitle: "Turning Intelligence into Questions.",
     subsubtitle: "Generate Ultra-Secure Exam Questions",
     ssstitle: "Just Minutes before the exam",

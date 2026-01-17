@@ -70,7 +70,7 @@ export interface OmniVisionConfig {
 
 export const omniVisionConfig: OmniVisionConfig = {
   hero: {
-    title: "OMNI VISION",
+    title: "Omni Vision",
     subtitle: "Smart incident response system",
     image: OmniVisionImage,
     backgroundColor: "bg-gray-100",

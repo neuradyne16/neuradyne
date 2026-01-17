@@ -214,10 +214,10 @@ export const siteConfig: SiteConfig = {
     headerImageAlt: "Header Image",
   },
   services: {
-    title: "Products/Services",
+    title: "Our Products",
     items: [
       {
-        title: "OMNI VISION",
+        title: "Omni Vision",
         image: serviceImage,
         content:
           "Infrastructure and crowd monitoring is fragmented and reactive. OMNI VISION helps operators detect anomalies, congestion, and safety risks early using AI-powered video analytics.",
@@ -226,7 +226,7 @@ export const siteConfig: SiteConfig = {
         viewWorkLink: "/omnivision",
       },
       {
-        title: "AI Question Generation",
+        title: "NeuroQ",
         image: questionimage,
         content:
           "Institutions struggle to generate high-quality, diverse questions at scale. Our AI Question Generation engine turns source material into assessments tailored by difficulty and topic.",
@@ -235,7 +235,7 @@ export const siteConfig: SiteConfig = {
         viewWorkLink: "/AIquestionGen",
       },
       {
-        title: "MCP",
+        title: "ContextBridge",
         image: mcpimage,
         content:
           "Many teams have ideas for AI products but lack end-to-end execution. Our MVP & Product Engineering service takes you from idea to deployable product quickly and safely.",
