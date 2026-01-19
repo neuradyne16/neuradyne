@@ -250,25 +250,12 @@ export const siteConfig: SiteConfig = {
     items: [
       {
         title: "OMNI VISION",
-        image: serviceImage,
+        image: serviceImage, // optional
         content:
-          "Problem Statement: Lack of real-time visual monitoring leads to delayed detection of accidents, potholes, and fallen-tree obstructions on roads. Solution: Omni Vision uses AI-based computer vision to automatically detect these incidents in real time, enabling faster response and improved public safety.",
-        viewWorkLink: "https://neuradyne.in/omni-vision",
+          "Problem Statement:ifvsniuvnvncednovonoevicejc Solution:ifvsniuvnvncednovonoevicejc Tech Stack: vrwjjvjwvjkewn jkewfnjewnen",
+        viewWorkLink: "https://neuradyne.in/omni-vision", // optional
       },
-      {
-        title: "AI Question Generation",
-        image: questionimage,
-        content:
-          "Problem Statement: Creating large sets of diverse, high-quality questions manually from textbooks or learning material is time-consuming and often lacks variety and depth. Solution: An automated AI-driven question generation engine that converts source material into structured, diverse assessments across difficulty levels, reducing educator workload while improving evaluation quality and coverage.",
-        viewWorkLink: "https://neuradyne.in/ai-question-generation",
-      },
-      {
-        title: "MCP",
-        image: mcpimage,
-        content:
-          "Problem Statement: Teams with strong ideas struggle to convert them into working AI products due to lack of technical expertise, long development cycles, and deployment challenges. Solution: A comprehensive MVP and product engineering service that rapidly converts ideas into functional, deployable AI products with focus on safety, scalability, and real-world usability.",
-        viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
-      },
+      // ... more items
     ],
   },
 
