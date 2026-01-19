@@ -9,7 +9,7 @@ export const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center overflow-x-clip px-5 pt-10 md:pt-2 lg:px-20">
-      <Spotlight className="hidden dark:block"/>
+      <Spotlight className="hidden dark:block" />
       <div className="w-full">
         <div className="md:flex items-center gap-8">
           <motion.div
@@ -77,56 +77,62 @@ export const Hero = () => {
         {/* Partners Section */}
         <div className="mt-16">
           <div className="text-center mb-6">
-            <h2
-              className="
-                text-2xl md:text-3xl font-bold
-                text-gray-600
-                dark:text-gray-400
-              "
-            >
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-600 dark:text-gray-400">
               {partners.title}
             </h2>
           </div>
 
-          <div
-            className="
-              -mx-5 lg:-mx-20 px-5 lg:px-20 py-6
-              bg-white dark:bg-gray-300
-            "
-          >
+          <div className="-mx-5 lg:-mx-20 py-6 bg-white">
             <div
               className="flex overflow-hidden"
-              style={{
-                maskImage:
-                  "linear-gradient(to right, transparent, black, transparent)",
-              }}
+              // style={{
+              //   maskImage:
+              //     "linear-gradient(to right, transparent, black, transparent)",
+              // }}
             >
               <motion.div
-                className="flex gap-16 flex-none pr-16 items-center"
-                animate={{ translateX: "-50%" }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatType: "loop",
-                }}
+                className="flex gap-12 md:gap-16 flex-none pr-16 items-center"
+                animate={
+                  typeof window !== "undefined" &&
+                  (window.innerWidth < 1024 || partners.logos.length > 5)
+                    ? { translateX: "-50%" }
+                    : false
+                }
+                transition={
+                  typeof window !== "undefined" &&
+                  (window.innerWidth < 1024 || partners.logos.length > 5)
+                    ? {
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }
+                    : undefined
+                }
               >
                 {partners.logos.map((logo, index) => (
                   <Image
+                    width={100}
+                    height={100}
                     key={index}
                     src={logo.src}
                     alt={logo.alt}
-                    className="logo-ticker-image h-12 w-auto object-contain"
+                    className="h-10 sm:h-12 w-auto ml-24 object-contain opacity-80"
                   />
                 ))}
-                {partners.logos.map((logo, index) => (
-                  <Image
-                    key={`duplicate-${index}`}
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="logo-ticker-image h-12 w-auto object-contain"
-                  />
-                ))}
+
+                {/* Duplicate only if animation is enabled */}
+                {typeof window !== "undefined" &&
+                  (window.innerWidth < 1024 || partners.logos.length > 5) &&
+                  partners.logos.map((logo, index) => (
+                    <Image
+                      width={100}
+                      height={100}
+                      key={`duplicate-${index}`}
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="h-10 sm:h-12 w-auto object-contain opacity-80"
+                    />
+                  ))}
               </motion.div>
             </div>
           </div>

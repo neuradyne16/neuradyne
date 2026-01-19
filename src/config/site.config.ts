@@ -278,14 +278,14 @@ export const siteConfig: SiteConfig = {
         src: logoCelestial,
         alt: "Celestial Logo",
       },
-      {
-        src: logoPulse,
-        alt: "Pulse Logo",
-      },
-      {
-        src: logoApex,
-        alt: "Apex Logo",
-      },
+      // {
+      //   src: logoPulse,
+      //   alt: "Pulse Logo",
+      // },
+      // {
+      //   src: logoApex,
+      //   alt: "Apex Logo",
+      // },
       {
         src: iitb,
         alt: "IITB Logo",
@@ -368,7 +368,7 @@ export const siteConfig: SiteConfig = {
           },
           {
             label: "LinkedIn",
-            href: "https://www.linkedin.com/in/neuradyne",
+            href: "https://www.linkedin.com/company/neuradyne-ai-systems-private-limited/",
           },
         ],
       },
@@ -563,7 +563,8 @@ export const siteConfig: SiteConfig = {
       heading: "Connect With Us",
       links: {
         twitter: "https://www.x.com/neuradyne",
-        linkedin: "https://www.linkedin.com/in/neuradyne",
+        linkedin:
+          "https://www.linkedin.com/company/neuradyne-ai-systems-private-limited/",
         github: "https://www.github.com/neuradyne16",
         instagram: "https://www.instagram.com/neuradynesolutions",
       },
