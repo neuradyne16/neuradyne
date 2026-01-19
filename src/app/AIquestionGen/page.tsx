@@ -141,9 +141,24 @@ export default function AIQuestionGeneratorPage() {
 
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#BAE6FD_0%,#F0F9FF_70%)] dark:bg-[radial-gradient(ellipse_200%_100%_at_top_right,#020617_0%,#000000_70%)]">
-      {/* Hero Section */}
-      <section className="py-16 md:py-24 px-5 lg:px-20">
-        <div className="container mx-auto text-center">
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative py-16 md:py-24 px-5 lg:px-20 overflow-hidden">
+        {/* Background Image from config */}
+        {config.hero.backgroundImage && (
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${config.hero.backgroundImage.src})`,
+            }}
+          />
+        )}
+
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-white/80 dark:bg-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/40 dark:to-black/60" />
+
+        {/* Content */}
+        <div className="container mx-auto text-center relative z-10">
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-800 dark:text-gray-100 mb-4 md:mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -153,8 +168,9 @@ export default function AIQuestionGeneratorPage() {
             {config.hero.title}
           </motion.h1>
 
+          {/* Subtitle */}
           <motion.p
-            className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-6 md:mb-8 px-4"
+            className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -162,23 +178,30 @@ export default function AIQuestionGeneratorPage() {
             {config.hero.subtitle}
           </motion.p>
 
-          {/* <motion.p
-            className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-6 md:mb-8 px-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {config.hero.subsubtitle}
-          </motion.p>
+          {/* Subsubtitle */}
+          {config.hero.subsubtitle && (
+            <motion.p
+              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-5 px-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              {config.hero.subsubtitle}
+            </motion.p>
+          )}
 
-          <motion.p
-            className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-6 md:mb-8 px-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {config.hero.ssstitle}
-          </motion.p> */}
+          {/* Highlighted SSS Title */}
+          {config.hero.ssstitle && (
+            <motion.div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-200/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-700 text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-200 mb-6"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              ⏱ {config.hero.ssstitle}
+            </motion.div>
+          )}
+
           {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 md:mb-8 px-4"
@@ -193,15 +216,13 @@ export default function AIQuestionGeneratorPage() {
                 <Link
                   key={idx}
                   href={button.href ?? ""}
-                  className={`
-        w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all 
-        flex items-center justify-center gap-2
-        ${
-          button.variant === "primary"
-            ? "bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700 text-white shadow-lg"
-            : "bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600"
-        }
-      `}
+                  className={`w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2
+              ${
+                button.variant === "primary"
+                  ? "bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 text-white dark:text-gray-900"
+                  : "bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600"
+              }
+            `}
                 >
                   {button.icon === "play" && <PlayIcon />}
                   {button.text}
@@ -228,9 +249,11 @@ export default function AIQuestionGeneratorPage() {
             ))}
           </motion.div>
 
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 italic px-4">
-            {config.hero.sourceNote}
-          </p>
+          {config.hero.sourceNote && (
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 italic px-4">
+              {config.hero.sourceNote}
+            </p>
+          )}
         </div>
       </section>
 
@@ -246,22 +269,44 @@ export default function AIQuestionGeneratorPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-4 px-4 cursor-pointer">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto mb-4 px-4">
             {config.problem.stats.map((stat, idx) => (
               <motion.div
                 key={idx}
-                onClick={() => window.open(stat.href, "_blank")}
-                className="bg-gray-200 dark:bg-gray-800 p-6 md:p-8 rounded-xl text-center shadow-lg"
+                className="bg-gray-200 dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col h-full"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-2">
-                  {stat.value}
+                {/* Main Content */}
+                <div className="p-6 md:p-8 text-center flex-1 flex flex-col justify-center">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+                    {stat.value}
+                  </div>
+
+                  <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
-                  {stat.label}
+
+                {/* Source Strip – FIXED HEIGHT */}
+                <div className="h-10 flex items-center justify-between px-4 text-xs bg-gray-100 dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700">
+                  <span className="text-gray-600 dark:text-gray-400 italic truncate">
+                    {stat.source ? `Source: ${stat.source}` : "Source: —"}
+                  </span>
+
+                  {stat.href ? (
+                    <button
+                      onClick={() => window.open(stat.href, "_blank")}
+                      className="flex-shrink-0 font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                      aria-label={`Verify source from ${stat.source}`}
+                    >
+                      Verify →
+                    </button>
+                  ) : (
+                    <span className="text-gray-400 dark:text-gray-600">—</span>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -355,59 +400,101 @@ export default function AIQuestionGeneratorPage() {
         </div>
       </section>
 
-      {/* Exam Boards Carousel */}
-      <section className="py-12 md:py-16 px-5 lg:px-20">
+      {/* Exam Boards / Clients */}
+      <section className="py-12 md:py-14 px-5 lg:px-20">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 text-center mb-8 md:mb-12 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 text-center mb-6 md:mb-8 px-4">
             {config.examBoards.title}
           </h2>
 
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
-            {config.examBoards.logos.map((logo, idx) => (
-              <motion.div
-                key={idx}
-                className="flex items-center justify-center px-6 py-4 bg-white dark:bg-gray-800 rounded-lg shadow-md min-w-[120px]"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <span className="text-xl md:text-2xl font-bold text-gray-700 dark:text-gray-300">
+          {/* Single Container */}
+          <div className="max-w-5xl mx-auto rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm shadow-md overflow-hidden">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
+              {config.examBoards.logos.map((logo, idx) => (
+                <motion.div
+                  key={idx}
+                  className={`
+              flex items-center justify-center py-4 px-3 text-center
+              text-gray-700 dark:text-gray-300 font-semibold
+              border-gray-300 dark:border-gray-700
+              ${idx !== 0 ? "border-l" : ""}
+              ${idx >= 2 ? "sm:border-t" : ""}
+              ${idx >= 3 ? "md:border-t-0" : ""}
+              transition-colors
+            `}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: idx * 0.05 }}
+                >
                   {logo.name}
-                </span>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 px-5 lg:px-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
+      <section className="py-12 md:py-14 px-5 lg:px-20 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm">
         <div className="container mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 text-center mb-8 md:mb-12 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 text-center mb-8 px-4">
             {config.cta.title}
           </h2>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-4xl mx-auto px-4">
-            {config.cta.buttons.map((button, idx) => (
-              <Link
-                key={idx}
-                href={button.href}
-                className={`
-                  w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold transition-all text-center
+          {/* Single CTA Container */}
+          <div className="max-w-5xl mx-auto rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-md overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {config.cta.buttons.map((button, idx) => (
+                <motion.div
+                  key={idx}
+                  className={`
+              px-6 py-6 flex flex-col items-center text-center
+              border-gray-300 dark:border-gray-700
+              ${idx !== 0 ? "border-t md:border-t-0 md:border-l" : ""}
+              min-h-[220px]
+            `}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                >
+                  {/* Top-aligned content */}
+                  <div className="flex-1 flex flex-col items-center">
+                    <h3 className="text-base font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                      {button.text}
+                    </h3>
+
+                    <p className="text-sm text-gray-600 dark:text-gray-400 max-w-xs">
+                      {button.variant === "primary" &&
+                        "Schedule a live walkthrough of the platform."}
+                      {button.variant === "secondary" &&
+                        "Get a customized proposal for your institution."}
+                      {button.variant === "tertiary" &&
+                        "Discuss security, compliance, and deployment."}
+                    </p>
+                  </div>
+
+                  {/* Bottom-aligned button */}
+                  <div className="pt-4">
+                    <Link
+                      href={button.href}
+                      className={`inline-flex items-center justify-center px-5 py-2.5 rounded-md font-semibold text-sm transition-all
                   ${
                     button.variant === "primary"
-                      ? "bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700 text-white shadow-lg"
+                      ? "bg-gray-800 hover:bg-gray-900 dark:bg-gray-100 dark:hover:bg-gray-200 text-white dark:text-gray-900"
                       : button.variant === "secondary"
                         ? "bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600"
-                        : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
+                        : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200"
                   }
                 `}
-              >
-                {button.text}
-              </Link>
-            ))}
+                    >
+                      {button.text}
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -18,7 +18,7 @@ export default function DialogCloseButton() {
         <Button
           className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-7 rounded-lg font-semibold transition-all 
         flex items-center justify-center gap-2
-        bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700 text-white shadow-lg"
+        bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 dark:hover:bg-gray-700 text-white hover:text-white shadow-lg"
           variant="outline"
         >
           {video.hero.buttons[1].text}
