@@ -247,16 +247,51 @@ export const siteConfig: SiteConfig = {
   },
   productCarousel: {
     title: "Our Products",
-    items: [
-      {
-        title: "OMNI VISION",
-        image: serviceImage, // optional
-        content:
-          "Problem Statement:ifvsniuvnvncednovonoevicejc Solution:ifvsniuvnvncednovonoevicejc Tech Stack: vrwjjvjwvjkewn jkewfnjewnen",
-        viewWorkLink: "https://neuradyne.in/omni-vision", // optional
-      },
-      // ... more items
-    ],
+items: [
+  {
+    title: "Omni Vision",
+    image: serviceImage,
+    content: `
+Problem Statement:
+Infrastructure and crowd monitoring systems are fragmented and largely reactive, making it difficult for operators to detect congestion, anomalies, and safety risks in real time.
+
+Solution:
+OMNI VISION leverages AI-powered video analytics to proactively monitor environments, identify abnormal patterns, and surface early warnings for safety and operational risks.
+    `,
+    techStack:
+      "YOLO-based vision models, Python, FastAPI, Kafka, cloud-native microservices, React dashboards",
+    viewWorkLink: "/omnivision",
+  },
+  {
+    title: "NeuroQ",
+    image: questionimage,
+    content: `
+Problem Statement:
+Educational institutions struggle to generate high-quality, diverse assessment questions at scale while maintaining consistency across difficulty levels and topics.
+
+Solution:
+NeuroQ uses an AI-driven question generation engine that transforms source material into structured assessments, dynamically customized by difficulty, topic, and learning objectives.
+    `,
+    techStack:
+      "Large language models, Python, LangChain, vector databases, Next.js frontends, cloud orchestration",
+    viewWorkLink: "/AIquestionGen",
+  },
+  {
+    title: "ContextBridge",
+    image: mcpimage,
+    content: `
+Problem Statement:
+Many teams have strong AI product ideas but lack the expertise and infrastructure needed to execute them end-to-end in a secure and scalable manner.
+
+Solution:
+ContextBridge provides MVP and product engineering services that take concepts from ideation to production-ready deployments with a focus on speed, reliability, and best practices.
+    `,
+    techStack:
+      "TypeScript, Next.js, Node.js, PostgreSQL, modern MLOps tooling, CI/CD pipelines",
+    viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
+  },
+],
+
   },
 
   partners: {

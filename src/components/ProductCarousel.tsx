@@ -1,44 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { siteConfig } from "@/config/site.config";
 
 export default function CarouselPlugin() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [direction, setDirection] = useState(0);
+  const [expanded, setExpanded] = useState<"problem" | "solution" | null>(null);
 
-  const services = [
-    {
-      title: "OMNI VISION",
-      content:
-        "Problem Statement: Lack of real-time visual monitoring leads to delayed detection of accidents, potholes, and fallen-tree obstructions on roads. Solution: Omni Vision uses AI-based computer vision to automatically detect these incidents in real time, enabling faster response and improved public safety. Tech Stack: Python, TensorFlow, OpenCV, Computer Vision, Deep Learning",
-    },
-    {
-      title: "SMART CITY PLATFORM",
-      content:
-        "Problem Statement: Cities struggle with fragmented data systems that prevent efficient resource management and citizen services. Solution: Integrated IoT platform that connects city infrastructure, provides real-time analytics, and enables data-driven decision making for better urban planning. Tech Stack: React, Node.js, MongoDB, IoT, AWS, Real-time Analytics",
-    },
-    {
-      title: "HEALTHCARE AI ASSISTANT",
-      content:
-        "Problem Statement: Medical professionals face overwhelming administrative tasks that reduce patient care time. Solution: AI-powered assistant that automates documentation, schedules, and patient communication while maintaining HIPAA compliance. Tech Stack: Next.js, Python, NLP, FastAPI, PostgreSQL, HIPAA Compliance",
-    },
-  ];
+  const items = siteConfig.productCarousel.items;
 
-  const parseContent = (text: string) => {
-    if (!text) return { problem: text, solution: "", techStack: [] };
+  const parseContent = (text: string, techStackProp?: string) => {
+    if (!text) return { problem: "", solution: "", techStack: [] };
 
     const problemMatch = text
       .split("Problem Statement:")[1]
       ?.split("Solution:")[0]
       ?.trim();
+
     const solutionMatch = text
       .split("Solution:")[1]
       ?.split("Tech Stack:")[0]
       ?.trim();
-    const techStackMatch = text.split("Tech Stack:")[1]?.trim();
 
-    const techStack = techStackMatch
-      ? techStackMatch.split(",").map((t) => t.trim())
+    const techStackString = techStackProp || text.split("Tech Stack:")[1]?.trim();
+    const techStack = techStackString
+      ? techStackString.split(",").map((t) => t.trim())
       : [];
 
     return {
@@ -51,124 +39,180 @@ export default function CarouselPlugin() {
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % services.length);
-    }, 5000);
+      setDirection(1);
+      setCurrentIndex((prev) => (prev + 1) % items.length);
+      setExpanded(null);
+    }, 3000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, services.length]);
+  }, [isAutoPlaying, items.length]);
 
-  const goToNext = () =>
-    setCurrentIndex((prev) => (prev + 1) % services.length);
-  const goToPrevious = () =>
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+  const goToNext = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev + 1) % items.length);
+    setExpanded(null);
+  };
+
+  const goToPrevious = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+    setExpanded(null);
+  };
 
   const { problem, solution, techStack } = parseContent(
-    services[currentIndex].content,
+    items[currentIndex].content,
+    items[currentIndex].techStack
   );
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center px-3 py-6 sm:p-6 lg:p-10 bg-slate-100 dark:bg-black">
-      <div className="w-full max-w-7xl relative">
+    <div className="w-full min-h-screen flex items-center justify-center px-4 py-8 sm:p-6 lg:p-8 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-black dark:to-gray-950">
+      <div className="w-full max-w-6xl">
         <div
-          className="
-            relative w-full
-            min-h-[520px]
-            sm:min-h-[580px]
-            md:h-[70vh]
-            lg:h-[75vh]
-            rounded-2xl sm:rounded-3xl
-            overflow-hidden
-            shadow-xl dark:shadow-2xl
-          "
+          className="relative w-full rounded-3xl overflow-hidden shadow-2xl dark:shadow-none bg-white dark:bg-gray-950 border border-slate-200 dark:border-gray-900"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          {/* Background */}
-          <div className="absolute inset-0 bg-white dark:bg-black" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/5 to-blue-500/5 dark:from-blue-500/10 dark:to-purple-500/10" />
+          {/* Background Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-purple-50/30 dark:from-black dark:via-gray-950 dark:to-gray-900" />
 
-          {/* Content */}
-          <div className="relative flex flex-col justify-center gap-6 sm:gap-8 px-4 py-6 sm:p-10 md:p-14 lg:p-16 h-full z-10">
+          <div
+            key={currentIndex}
+            className="relative flex flex-col gap-6 px-6 py-10 sm:px-10 sm:py-12 md:px-12 md:py-14 lg:px-16 lg:py-16 z-10 animate-slideIn"
+          >
             {/* Badge */}
-            <div className="flex justify-center">
-              <div className="px-4 sm:px-6 py-2 sm:py-3 rounded-full border border-blue-500/30 bg-blue-500/5 backdrop-blur">
-                <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-blue-500 dark:text-blue-400">
-                  How We Solve Problems
+            <div className="flex justify-center mb-2">
+              <div className="inline-flex items-center px-4 py-2 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-100/80 dark:bg-blue-900/40 backdrop-blur-sm shadow-sm">
+                <span className="text-xs font-bold uppercase tracking-widest text-blue-700 dark:text-blue-300">
+                  {siteConfig.productCarousel.title}
                 </span>
               </div>
             </div>
 
             {/* Title */}
-            <div className="text-center space-y-3 sm:space-y-4">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-sky-900 to-blue-700 dark:from-white dark:to-blue-300 bg-clip-text text-transparent">
-                {services[currentIndex].title}
+            <div className="text-center space-y-3 mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 dark:text-white px-4">
+                {items[currentIndex].title}
               </h2>
-              <div className="w-16 sm:w-20 md:w-24 h-1 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+              <div className="flex justify-center">
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+              </div>
             </div>
 
-            {/* Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              {problem && (
-                <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-50 dark:bg-slate-900 border border-red-500/20">
-                  <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-red-500 dark:text-red-400 mb-2 sm:mb-3">
-                    Challenge
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+              {/* Problem Card */}
+              <div
+                className={`flex flex-col p-5 lg:p-6 rounded-2xl bg-gradient-to-br from-neutral-50 to-orange-50 dark:from-neutral-950/30 dark:to-orange-950/20 border-2 border-neutral-200 dark:border-neutral-800/50 shadow-lg dark:shadow-neutral-900/10 transition-all duration-300 ${
+                  expanded === "problem" ? "min-h-fit" : "h-auto"
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-neutral-500 dark:bg-neutral-400" />
+                  <h3 className="text-xs font-black uppercase tracking-widest text-neutral-700 dark:text-neutral-400">
+                    The Problem
                   </h3>
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                    {problem}
-                  </p>
                 </div>
-              )}
 
-              {solution && (
-                <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-50 dark:bg-slate-900 border border-emerald-500/20">
-                  <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400 mb-2 sm:mb-3">
+                <p
+                  className={`text-sm leading-relaxed text-gray-800 dark:text-gray-200 flex-grow ${
+                    expanded === "problem" ? "" : "line-clamp-4 md:line-clamp-none"
+                  }`}
+                >
+                  {problem}
+                </p>
+
+                {problem.length > 140 && (
+                  <button
+                    onClick={() =>
+                      setExpanded(expanded === "problem" ? null : "problem")
+                    }
+                    className="mt-3 text-xs font-bold text-neutral-600 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 underline-offset-2 hover:underline transition-all self-start md:hidden"
+                  >
+                    {expanded === "problem" ? "Show less ↑" : "Read more →"}
+                  </button>
+                )}
+              </div>
+
+              {/* Solution Card */}
+              <div
+                className={`flex flex-col p-5 lg:p-6 rounded-2xl bg-gradient-to-br from-neutral-50 to-teal-50 dark:from-neutral-950/30 dark:to-teal-950/20 border-2 border-neutral-200 dark:border-neutral-800/50 shadow-lg dark:shadow-neutral-900/10 transition-all duration-300 ${
+                  expanded === "solution" ? "min-h-fit" : "h-auto"
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full bg-neutral-500 dark:bg-neutral-400" />
+                  <h3 className="text-xs font-black uppercase tracking-widest text-neutral-700 dark:text-neutral-400">
                     Our Solution
                   </h3>
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                    {solution}
-                  </p>
                 </div>
-              )}
+
+                <p
+                  className={`text-sm leading-relaxed text-gray-800 dark:text-gray-200 flex-grow ${
+                    expanded === "solution" ? "" : "line-clamp-4 md:line-clamp-none"
+                  }`}
+                >
+                  {solution}
+                </p>
+
+                {solution.length > 140 && (
+                  <button
+                    onClick={() =>
+                      setExpanded(expanded === "solution" ? null : "solution")
+                    }
+                    className="mt-3 text-xs font-bold text-neutral-600 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 underline-offset-2 hover:underline transition-all self-start md:hidden"
+                  >
+                    {expanded === "solution" ? "Show less ↑" : "Read more →"}
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Tech Stack */}
             {techStack.length > 0 && (
-              <div className="text-center space-y-3 sm:space-y-4">
-                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-                  Tech Stack
-                </h3>
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              <div className=" p-5 lg:p-6">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-neutral-700 dark:text-blue-400">
+                    Technology used
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-2 lg:gap-3">
                   {techStack.map((tech, i) => (
-                    <span
+                    <div
                       key={i}
-                      className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-xs sm:text-sm font-medium bg-white dark:bg-black border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-blue-500 hover:text-blue-500 dark:hover:text-blue-400 transition"
+                      className="inline-flex items-center px-4 py-2 rounded-xl border border-blue-300 dark:border-blue-700/60 bg-white dark:bg-gray-900 text-xs font-semibold text-gray-700 dark:text-gray-200 shadow-sm hover:shadow-md hover:border-blue-500 dark:hover:border-blue-500 hover:scale-105 transition-all duration-200 cursor-default"
                     >
                       {tech}
-                    </span>
+                    </div>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Indicators */}
-            <div className="flex justify-center gap-2 pt-2">
-              {services.map((_, idx) => (
+            {/* Pagination Dots */}
+            <div className="flex justify-center items-center gap-2 mt-4">
+              {items.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`h-2 rounded-full transition-all ${
+                  onClick={() => {
+                    setDirection(idx > currentIndex ? 1 : -1);
+                    setCurrentIndex(idx);
+                    setExpanded(null);
+                  }}
+                  className={`rounded-full transition-all duration-300 ${
                     idx === currentIndex
-                      ? "w-6 sm:w-8 bg-gradient-to-r from-blue-500 to-purple-500"
-                      : "w-2 bg-slate-400 dark:bg-slate-600"
+                      ? "w-8 h-2 bg-neutral-600 dark:bg-neutral-500 shadow-lg"
+                      : "w-2 h-2 bg-slate-300 dark:bg-gray-600 hover:bg-slate-400 dark:hover:bg-gray-500 hover:scale-125"
                   }`}
+                  aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
             </div>
           </div>
 
-          {/* Navigation */}
-          <button
+          {/* Navigation Buttons */}
+            <button
             onClick={goToPrevious}
-            className="
+            className={`
               absolute left-2 sm:left-1 top-1/2 -translate-y-1/2
               w-10 h-10 sm:w-12 sm:h-12
               rounded-full
@@ -181,7 +225,7 @@ export default function CarouselPlugin() {
               z-30
               cursor-pointer
               shadow-md hover:shadow-lg
-            "
+            `}
             aria-label="Previous slide"
           >
             <svg
@@ -201,7 +245,7 @@ export default function CarouselPlugin() {
 
           <button
             onClick={goToNext}
-            className="
+            className={`
               absolute right-2 sm:right-1 top-1/2 -translate-y-1/2
               w-10 h-10 sm:w-12 sm:h-12
               rounded-full
@@ -214,7 +258,7 @@ export default function CarouselPlugin() {
               z-30
               cursor-pointer
               shadow-md hover:shadow-lg
-            "
+            `}
             aria-label="Next slide"
           >
             <svg
@@ -233,6 +277,22 @@ export default function CarouselPlugin() {
           </button>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(${direction > 0 ? "30px" : "-30px"});
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        .animate-slideIn {
+          animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      `}</style>
     </div>
   );
 }
