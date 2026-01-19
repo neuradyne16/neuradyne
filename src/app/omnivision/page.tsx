@@ -76,6 +76,37 @@ const ArrowIcon = () => (
     />
   </svg>
 );
+const WarningIcon = () => (
+  <svg
+    className="w-8 h-8 text-sky-700 dark:text-blue-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+    />
+  </svg>
+);
+
+const TimeIcon = () => (
+  <svg
+    className="w-8 h-8 text-sky-700 dark:text-blue-400"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
+  </svg>
+);
 
 export default function OmniVisionPage() {
   const config = omniVisionConfig;
@@ -271,28 +302,51 @@ export default function OmniVisionPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {config.problemNumbers.cards.map((card, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                onClick={() => window.open(card.href, "_blank")}
-                className="bg-gray-50 dark:bg-gray-900 cursor-pointer p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-800 hover:shadow-xl transition-shadow"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                whileHover={{ y: -5 }}
+                className="overflow-hidden rounded-lg shadow-lg border border-gray-200 dark:border-gray-800"
               >
-                <div className="text-4xl font-bold text-sky-800 dark:text-blue-400 mb-2">
-                  {card.value}
-                </div>
-                <div className="text-sm font-semibold text-sky-900 dark:text-gray-300 mb-1">
-                  {card.label}
-                </div>
-                {card.sublabel && (
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
-                    {card.sublabel}
+                <motion.div
+                  onClick={() => window.open(card.href, "_blank")}
+                  className="bg-gray-50 dark:bg-gray-900 cursor-pointer p-6 hover:shadow-xl transition-shadow min-h-[160px] flex flex-col justify-start"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="text-4xl font-bold text-sky-800 dark:text-blue-400 mb-2">
+                    {card.value}
                   </div>
-                )}
-              </motion.div>
+                  <div className="text-sm font-semibold text-sky-900 dark:text-gray-300 mb-1">
+                    {card.label}
+                  </div>
+                  {card.sublabel && (
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      {card.sublabel}
+                    </div>
+                  )}
+                </motion.div>
+
+                {/* Source Strip – FIXED HEIGHT */}
+                <div className="h-10 flex items-center justify-between px-4 text-xs bg-gray-100 dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700">
+                  <span className="text-gray-600 dark:text-gray-400 italic truncate">
+                    {card.source ? `Source: ${card.source}` : "Source: —"}
+                  </span>
+
+                  {card.href ? (
+                    <button
+                      onClick={() => window.open(card.href, "_blank")}
+                      className="flex-shrink-0 font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                      aria-label={`Verify source from ${card.source}`}
+                    >
+                      Verify →
+                    </button>
+                  ) : (
+                    <span className="text-gray-400 dark:text-gray-600">—</span>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
 
@@ -304,66 +358,48 @@ export default function OmniVisionPage() {
         </div>
       </section>
 
-      {/* Solution Section */}
-      <section className="py-16 px-5 lg:px-20 bg-gray-50 dark:bg-gray-900">
+      {/* Delayed Action Risk Section */}
+      <section className="py-12 sm:py-16 px-4 sm:px-5 lg:px-20 bg-gray-100 dark:bg-gray-900">
         <div className="container mx-auto">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center justify-center mb-4">
-              <svg
-                className="w-10 h-10 text-sky-700 dark:text-blue-400 mr-3"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
-              </svg>
-              <h2 className="text-3xl md:text-4xl font-bold text-sky-900 dark:text-white">
-                {config.solution.title}
-              </h2>
-            </div>
-            <p className="text-lg text-sky-800 dark:text-gray-300 italic">
-              {config.solution.subtitle}
-            </p>
-          </motion.div>
+          {/* Title */}
+          <div className="flex items-center justify-center mb-12">
+            <svg
+              className="w-8 h-8 text-sky-700 dark:text-blue-400 mr-3"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92z"
+                clipRule="evenodd"
+              />
+            </svg>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            {config.solution.steps.map((step, idx) => (
-              <React.Fragment key={idx}>
-                <motion.div
-                  className="text-center max-w-xs"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.2 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  {step.icon === "camera" && <CameraIcon />}
-                  {step.icon === "alert" && <AlertIcon />}
-                  {step.icon === "response" && <CheckIcon />}
-                  <h3 className="text-xl font-bold text-sky-900 dark:text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-sky-800 dark:text-gray-300">
-                    {step.description}
+            <h2 className="text-3xl md:text-4xl font-bold text-sky-900 dark:text-white">
+              {config.delayedAction.title}
+            </h2>
+          </div>
+
+          {/* Cards */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {config.delayedAction.cards.map((card, idx) => (
+              <motion.div
+                key={idx}
+                className="bg-white dark:bg-gray-950 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+              >
+                <div className="flex items-start gap-4">
+                  {card.icon === "warning" && <WarningIcon />}
+                  {card.icon === "time" && <TimeIcon />}
+
+                  <p className="text-sky-800 dark:text-gray-300 leading-relaxed">
+                    {card.description}
                   </p>
-                </motion.div>
-                {idx < config.solution.steps.length - 1 && (
-                  <motion.div
-                    className="hidden md:block"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.2 + 0.3 }}
-                  >
-                    <ArrowIcon />
-                  </motion.div>
-                )}
-              </React.Fragment>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
