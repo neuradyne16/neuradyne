@@ -56,10 +56,6 @@ export interface SiteConfig {
   };
   blog: {
     title: string;
-    categories: Array<{
-      title: string;
-      content: string;
-    }>;
   };
   footer: {
     logo: StaticImageData;
@@ -247,51 +243,50 @@ export const siteConfig: SiteConfig = {
   },
   productCarousel: {
     title: "Our Products",
-items: [
-  {
-    title: "Omni Vision",
-    image: serviceImage,
-    content: `
+    items: [
+      {
+        title: "Omni Vision",
+        image: serviceImage,
+        content: `
 Problem Statement:
 Infrastructure and crowd monitoring systems are fragmented and largely reactive, making it difficult for operators to detect congestion, anomalies, and safety risks in real time.
 
 Solution:
 OMNI VISION leverages AI-powered video analytics to proactively monitor environments, identify abnormal patterns, and surface early warnings for safety and operational risks.
     `,
-    techStack:
-      "YOLO-based vision models, Python, FastAPI, Kafka, cloud-native microservices, React dashboards",
-    viewWorkLink: "/omnivision",
-  },
-  {
-    title: "NeuroQ",
-    image: questionimage,
-    content: `
+        techStack:
+          "YOLO-based vision models, Python, FastAPI, Kafka, cloud-native microservices, React dashboards",
+        viewWorkLink: "/omnivision",
+      },
+      {
+        title: "NeuroQ",
+        image: questionimage,
+        content: `
 Problem Statement:
 Educational institutions struggle to generate high-quality, diverse assessment questions at scale while maintaining consistency across difficulty levels and topics.
 
 Solution:
 NeuroQ uses an AI-driven question generation engine that transforms source material into structured assessments, dynamically customized by difficulty, topic, and learning objectives.
     `,
-    techStack:
-      "Large language models, Python, LangChain, vector databases, Next.js frontends, cloud orchestration",
-    viewWorkLink: "/AIquestionGen",
-  },
-  {
-    title: "ContextBridge",
-    image: mcpimage,
-    content: `
+        techStack:
+          "Large language models, Python, LangChain, vector databases, Next.js frontends, cloud orchestration",
+        viewWorkLink: "/AIquestionGen",
+      },
+      {
+        title: "ContextBridge",
+        image: mcpimage,
+        content: `
 Problem Statement:
 Many teams have strong AI product ideas but lack the expertise and infrastructure needed to execute them end-to-end in a secure and scalable manner.
 
 Solution:
 ContextBridge provides MVP and product engineering services that take concepts from ideation to production-ready deployments with a focus on speed, reliability, and best practices.
     `,
-    techStack:
-      "TypeScript, Next.js, Node.js, PostgreSQL, modern MLOps tooling, CI/CD pipelines",
-    viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
-  },
-],
-
+        techStack:
+          "TypeScript, Next.js, Node.js, PostgreSQL, modern MLOps tooling, CI/CD pipelines",
+        viewWorkLink: "https://neuradyne.in/mvp-product-engineering",
+      },
+    ],
   },
 
   partners: {
@@ -357,33 +352,6 @@ ContextBridge provides MVP and product engineering services that take concepts f
   },
   blog: {
     title: "Neuradyne AI Blog",
-    categories: [
-      {
-        title: "Applied Artificial Intelligence",
-        content:
-          "Neuradyne AI builds practical AI systems that solve real-world problems. From intelligent monitoring to automation, we focus on deploying AI that delivers measurable impact.",
-      },
-      {
-        title: "Startup Prototyping & MVPs",
-        content:
-          "We help ideas move fast. Neuradyne AI specializes in rapid prototyping and MVP development, enabling startups to validate concepts and scale with confidence.",
-      },
-      {
-        title: "Computer Vision Systems",
-        content:
-          "Using modern vision models like YOLO, we develop smart detection systems for infrastructure, safety, and monitoring applications.",
-      },
-      {
-        title: "NLP & Knowledge Automation",
-        content:
-          "Neuradyne AI leverages NLP to automate knowledge workflows, from question generation to intelligent document-based assistants.",
-      },
-      {
-        title: "Scalable Software Engineering",
-        content:
-          "We design robust, scalable software architectures that support AI systems from prototype to production.",
-      },
-    ],
   },
 
   footer: {

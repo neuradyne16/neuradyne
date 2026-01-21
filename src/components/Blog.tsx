@@ -1,6 +1,7 @@
 "use client";
 
 import { siteConfig } from "@/config/site.config";
+import { blogConfig } from "@/config/blog.config";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import BlogsPage from "@/app/blogs/page";
@@ -17,11 +18,11 @@ export const Blog = () => {
         </h2>
 
         <div className="max-w-6xl mx-auto flex flex-col divide-y divide-slate-200 dark:divide-gray-800">
-          {blog.categories.map((category, index) => (
+          {blogConfig.posts.slice(0, 5).map((post, index) => (
             <FlowingBlogItem
               key={index}
-              title={category.title}
-              content={category.content}
+              title={post.title}
+              content={post.excerpt}
               isFirst={index === 0}
             />
           ))}
@@ -87,11 +88,13 @@ const FlowingBlogItem = ({
         ref={overlayRef}
         className="absolute inset-0 bg-slate-900 dark:bg-gray-100 text-white dark:text-slate-900 flex items-center justify-center px-6 md:px-12"
       >
-        <Link href={"/blogs"} className="max-w-4xl text-center text-base md:text-lg leading-relaxed opacity-90">
+        <Link
+          href={"/blogs"}
+          className="max-w-4xl text-center text-base md:text-lg leading-relaxed opacity-90"
+        >
           {content}
         </Link>
       </div>
     </div>
   );
 };
-
