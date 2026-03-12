@@ -42,6 +42,7 @@ export interface SiteConfig {
     logos: Array<{
       src: StaticImageData;
       alt: string;
+      website?: string;
     }>;
   };
   activities: {
@@ -166,7 +167,7 @@ export interface SiteConfig {
 import logo from "@/assets/logo.png";
 import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
-import logoIntellizo from "@/assets/Intellizo.webp";
+import logoIntellizo from "@/assets/Intellizo.png";
 import iitb from "@/assets/rep-logo.png";
 import logoQuantum from "@/assets/logo-quantum.png";
 import logoEcho from "@/assets/logo-echo.png";
@@ -295,30 +296,35 @@ ContextBridge provides MVP and product engineering services that take concepts f
       {
         src: logoIntellizo,
         alt: "Intellizo Logo",
+        website: "https://intellizosoftwares.com/",
       },
       {
         src: logoQuantum,
         alt: "Quantum Logo",
+        website: "https://www.quantum.com/",
       },
       {
         src: logoEcho,
         alt: "Echo Logo",
+        website: "https://echotech.com/",
       },
       {
         src: logoCelestial,
         alt: "Celestial Logo",
+        website: "https://celestialtech.com/",
       },
       // {
       //   src: logoPulse,
       //   alt: "Pulse Logo",
       // },
-      // {
-      //   src: logoApex,
-      //   alt: "Apex Logo",
-      // },
+      {
+        src: logoApex,
+        alt: "Apex Logo",
+      },
       {
         src: iitb,
         alt: "IITB Logo",
+        website: "https://www.iitbbs.ac.in/",
       },
     ],
   },

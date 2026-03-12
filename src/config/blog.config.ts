@@ -4,6 +4,11 @@ import questionimage from "@/assets/question.jpg";
 import mcpimage from "@/assets/mcp.jpg";
 import productImage from "@/assets/product-image.png";
 import dijisktra from "@/assets/blog1.jpg";
+import yolo1 from "@/assets/yoloblog.gif";
+import yolov1 from "@/assets/yolov1-v11.png";
+import vllm from "@/assets/vllm.avif";
+import vllm2 from "@/assets/vllm2.avif";
+import sok from "@/assets/sok.webp";
 
 export type ContentBlock =
   | { type: "heading"; level: 1 | 2 | 3 | 4 | 5 | 6; text: string }
@@ -191,7 +196,7 @@ def dijkstra(graph, start):
       title: "YOLOE: Real-Time Seeing Anything",
       excerpt:
         "Unified open-vocabulary detection that outperforms YOLO-World with significantly lower training cost.",
-      image: serviceImage,
+      image: yolo1,
       content:
         "YOLOE introduces a unified open-set detection framework supporting text prompts, visual prompts, and prompt-free inference in real time.",
       date: "2025-03-09",
@@ -270,7 +275,7 @@ def dijkstra(graph, start):
       title: "YOLOv1 to YOLOv11: A Comprehensive Survey",
       excerpt:
         "A decade-long review of YOLO architectures, benchmarks, and future research directions.",
-      image: serviceImage,
+      image: yolov1,
       content:
         "This survey traces the evolution of YOLO from early regression-based detection to modern multi-task, real-time vision systems.",
       date: "2025-08-03",
@@ -334,7 +339,7 @@ def dijkstra(graph, start):
       title: "vLLM: Efficient Large Language Model Inference",
       excerpt:
         "A system-level solution to KV-cache bottlenecks using PagedAttention.",
-      image: serviceImage,
+      image: vllm,
       content:
         "vLLM is an open-source inference engine designed to improve memory efficiency and throughput when serving large language models.",
       date: "2025-12-14",
@@ -391,7 +396,7 @@ def dijkstra(graph, start):
       title: "SoK: Machine Unlearning for Large Language Models",
       excerpt:
         "A systematization of methods to remove training data influence from LLMs.",
-      image: serviceImage,
+      image: sok,
       content:
         "This SoK paper reviews techniques for machine unlearning in large language models, focusing on privacy, safety, and regulatory compliance.",
       date: "2025-06-10",

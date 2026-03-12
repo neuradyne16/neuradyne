@@ -109,30 +109,68 @@ export const Hero = () => {
                     : undefined
                 }
               >
-                {partners.logos.map((logo, index) => (
-                  <Image
-                    width={100}
-                    height={100}
-                    key={index}
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="h-10 sm:h-12 w-auto ml-24 object-contain opacity-80"
-                  />
-                ))}
-
-                {/* Duplicate only if animation is enabled */}
-                {typeof window !== "undefined" &&
-                  (window.innerWidth < 1024 || partners.logos.length > 5) &&
-                  partners.logos.map((logo, index) => (
+                // partners map:
+                {partners.logos.map((logo, index) =>
+                  logo.website ? (
+                    <a
+                      key={index}
+                      href={logo.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer"
+                    >
+                      <Image
+                        width={100}
+                        height={100}
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-10 sm:h-12 w-auto object-contain opacity-80"
+                        draggable={false}
+                      />
+                    </a>
+                  ) : (
                     <Image
                       width={100}
                       height={100}
-                      key={`duplicate-${index}`}
+                      key={index}
                       src={logo.src}
                       alt={logo.alt}
                       className="h-10 sm:h-12 w-auto object-contain opacity-80"
                     />
-                  ))}
+                  ),
+                )}
+                {/* Duplicate only if animation is enabled */}
+                {typeof window !== "undefined" &&
+                  (window.innerWidth < 1024 || partners.logos.length > 5) &&
+                  partners.logos.map((logo, index) =>
+                    logo.website ? (
+                      <a
+                        key={`duplicate-${index}`}
+                        href={logo.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer"
+                      >
+                        <Image
+                          width={100}
+                          height={100}
+                          src={logo.src}
+                          alt={logo.alt}
+                          className="h-10 sm:h-12 w-auto object-contain opacity-80"
+                          draggable={false}
+                        />
+                      </a>
+                    ) : (
+                      <Image
+                        width={100}
+                        height={100}
+                        key={`duplicate-${index}`}
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-10 sm:h-12 w-auto object-contain opacity-80"
+                      />
+                    ),
+                  )}
               </motion.div>
             </div>
           </div>
