@@ -166,7 +166,7 @@ export interface SiteConfig {
 import logo from "@/assets/logo.png";
 import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
-import logoAcme from "@/assets/logo-acme.png";
+import logoIntellizo from "@/assets/Intellizo.webp";
 import iitb from "@/assets/rep-logo.png";
 import logoQuantum from "@/assets/logo-quantum.png";
 import logoEcho from "@/assets/logo-echo.png";
@@ -293,8 +293,8 @@ ContextBridge provides MVP and product engineering services that take concepts f
     title: "Partners",
     logos: [
       {
-        src: logoAcme,
-        alt: "Acme Logo",
+        src: logoIntellizo,
+        alt: "Intellizo Logo",
       },
       {
         src: logoQuantum,
