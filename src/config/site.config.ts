@@ -167,7 +167,7 @@ export interface SiteConfig {
 import logo from "@/assets/logo.png";
 import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
-import logoIntellizo from "@/assets/Intellizo.png";
+import logoIntellizo from "@/assets/intellizo.png";
 import iitb from "@/assets/rep-logo.png";
 import logoQuantum from "@/assets/logo-quantum.png";
 import logoEcho from "@/assets/logo-echo.png";
