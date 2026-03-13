@@ -73,7 +73,9 @@ function renderContentBlock(block: ContentBlock, index: number) {
         <figure key={index} className="my-8">
           <div className="relative w-full flex items-center justify-center rounded-xl overflow-hidden bg-slate-100 dark:bg-black">
             {isExternalUrl ? (
-              <img
+              <Image
+                height={100}
+                width={100}
                 src={block.src as string}
                 alt={block.alt}
                 className="w-auto h-auto max-w-full object-contain"
@@ -131,7 +133,7 @@ function renderContentBlock(block: ContentBlock, index: number) {
           className="border-l-4 border-blue-500 dark:border-blue-400 pl-6 pr-4 py-4 my-6 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg"
         >
           <p className="text-lg text-slate-800 dark:text-slate-200 italic mb-2">
-            "{block.text}"
+            &apos;{block.text}&apos;
           </p>
           {block.author && (
             <cite className="text-sm text-slate-600 dark:text-slate-400 not-italic">
