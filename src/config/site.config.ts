@@ -317,10 +317,10 @@ ContextBridge provides MVP and product engineering services that take concepts f
       //   src: logoPulse,
       //   alt: "Pulse Logo",
       // },
-      {
-        src: logoApex,
-        alt: "Apex Logo",
-      },
+      // {
+      //   src: logoApex,
+      //   alt: "Apex Logo",
+      // },
       {
         src: iitb,
         alt: "IITB Logo",

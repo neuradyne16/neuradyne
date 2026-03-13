@@ -3,9 +3,26 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site.config";
 import { motion } from "framer-motion";
 import { Spotlight } from "./ui/spotlight";
+import { useEffect, useState } from "react";
 
 export const Hero = () => {
   const { hero, partners } = siteConfig;
+  const [isClient, setIsClient] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Determine if animation should play
+  const shouldAnimate =
+    partners.logos.length > 4 || (partners.logos.length === 4 && isMobile);
 
   return (
     <section className="min-h-screen flex items-center overflow-x-clip px-5 pt-10 md:pt-2 lg:px-20">
@@ -83,41 +100,30 @@ export const Hero = () => {
           </div>
 
           <div className="-mx-5 lg:-mx-20 py-6 bg-white">
-            <div
-              className="flex overflow-hidden"
-              // style={{
-              //   maskImage:
-              //     "linear-gradient(to right, transparent, black, transparent)",
-              // }}
-            >
+            <div className="flex overflow-hidden">
               <motion.div
                 className="flex gap-12 md:gap-16 flex-none pr-16 items-center"
-                animate={
-                  typeof window !== "undefined" &&
-                  (window.innerWidth < 1024 || partners.logos.length > 5)
-                    ? { translateX: "-50%" }
-                    : false
-                }
+                animate={isClient && shouldAnimate ? { x: -1000 } : { x: 0 }}
                 transition={
-                  typeof window !== "undefined" &&
-                  (window.innerWidth < 1024 || partners.logos.length > 5)
+                  isClient && shouldAnimate
                     ? {
-                        duration: 20,
+                        duration: 30,
                         repeat: Infinity,
                         ease: "linear",
+                        repeatType: "loop",
                       }
                     : undefined
                 }
               >
-                // partners map:
+                {/* Original logos */}
                 {partners.logos.map((logo, index) =>
                   logo.website ? (
                     <a
-                      key={index}
+                      key={`original-${index}`}
                       href={logo.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="cursor-pointer"
+                      className="cursor-pointer hover:opacity-100 transition-opacity flex-shrink-0"
                     >
                       <Image
                         width={100}
@@ -129,48 +135,48 @@ export const Hero = () => {
                       />
                     </a>
                   ) : (
-                    <Image
-                      width={100}
-                      height={100}
-                      key={index}
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="h-10 sm:h-12 w-auto object-contain opacity-80"
-                    />
-                  ),
-                )}
-                {/* Duplicate only if animation is enabled */}
-                {typeof window !== "undefined" &&
-                  (window.innerWidth < 1024 || partners.logos.length > 5) &&
-                  partners.logos.map((logo, index) =>
-                    logo.website ? (
-                      <a
-                        key={`duplicate-${index}`}
-                        href={logo.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cursor-pointer"
-                      >
-                        <Image
-                          width={100}
-                          height={100}
-                          src={logo.src}
-                          alt={logo.alt}
-                          className="h-10 sm:h-12 w-auto object-contain opacity-80"
-                          draggable={false}
-                        />
-                      </a>
-                    ) : (
+                    <div key={`original-${index}`} className="flex-shrink-0">
                       <Image
                         width={100}
                         height={100}
-                        key={`duplicate-${index}`}
                         src={logo.src}
                         alt={logo.alt}
                         className="h-10 sm:h-12 w-auto object-contain opacity-80"
                       />
-                    ),
-                  )}
+                    </div>
+                  ),
+                )}
+                {/* Duplicate logos for seamless loop */}
+                {partners.logos.map((logo, index) =>
+                  logo.website ? (
+                    <a
+                      key={`duplicate-${index}`}
+                      href={logo.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer hover:opacity-100 transition-opacity flex-shrink-0"
+                    >
+                      <Image
+                        width={100}
+                        height={100}
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-10 sm:h-12 w-auto object-contain opacity-80"
+                        draggable={false}
+                      />
+                    </a>
+                  ) : (
+                    <div key={`duplicate-${index}`} className="flex-shrink-0">
+                      <Image
+                        width={100}
+                        height={100}
+                        src={logo.src}
+                        alt={logo.alt}
+                        className="h-10 sm:h-12 w-auto object-contain opacity-80"
+                      />
+                    </div>
+                  ),
+                )}
               </motion.div>
             </div>
           </div>
