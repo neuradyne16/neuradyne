@@ -45,7 +45,6 @@ export const Activities = () => {
   const canGoPrev = currentIndex > 0;
   const canGoNext = currentIndex < maxIndex;
 
-
   return (
     <section
       id="activities"
@@ -64,7 +63,11 @@ export const Activities = () => {
           {activities.introContent}
         </p>
 
-        {showCarousel ? (
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          Stay in touch to get the updates...
+        </h2>
+
+        {/* {showCarousel ? (
           <div className="relative">
             <div className="flex justify-end gap-2 mb-6">
               <button
@@ -141,7 +144,7 @@ export const Activities = () => {
               <ActivityCard key={index} activity={activity} />
             ))}
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );
