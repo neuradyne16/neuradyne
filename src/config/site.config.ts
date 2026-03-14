@@ -112,14 +112,14 @@ export interface SiteConfig {
       subtitle: string;
       backgroundColor: string; // e.g., "bg-blue-700"
     };
-    stats: {
-      enabled: boolean;
-      items: Array<{
-        value: string;
-        label: string;
-        color?: string; // e.g., "text-blue-600"
-      }>;
-    };
+    // stats: {
+    //   enabled: boolean;
+    //   items: Array<{
+    //     value: string;
+    //     label: string;
+    //     color?: string; // e.g., "text-blue-600"
+    //   }>;
+    // };
     sections: Array<{
       id: string;
       type: "mission" | "vision" | "values" | "team" | "custom";
@@ -133,16 +133,6 @@ export interface SiteConfig {
         icon?: string;
       }>;
     }>;
-    contact: {
-      enabled: boolean;
-      heading: string;
-      showEmail: boolean;
-      email: string;
-      showPhone: boolean;
-      phone: string;
-      showAddress: boolean;
-      address: string;
-    };
     social: {
       enabled: boolean;
       heading: string;
@@ -479,26 +469,26 @@ ContextBridge provides MVP and product engineering services that take concepts f
         "Neuradyne helps businesses imagine their future and make it real with AI, technology and people.",
       backgroundColor: "bg-blue-700",
     },
-    stats: {
-      enabled: true,
-      items: [
-        {
-          value: "₹22.1cr",
-          label: "2024 revenue",
-          color: "text-blue-600",
-        },
-        {
-          value: "420K",
-          label: "people",
-          color: "text-blue-600",
-        },
-        {
-          value: "50+",
-          label: "countries",
-          color: "text-blue-600",
-        },
-      ],
-    },
+    // stats: {
+    //   enabled: true,
+    //   items: [
+    //     {
+    //       value: "₹XXcr",
+    //       label: "2026 revenue",
+    //       color: "text-blue-600",
+    //     },
+    //     {
+    //       value: "XX",
+    //       label: "people",
+    //       color: "text-blue-600",
+    //     },
+    //     {
+    //       value: "50+",
+    //       label: "countries",
+    //       color: "text-blue-600",
+    //     },
+    //   ],
+    // },
     sections: [
       {
         id: "mission",
@@ -557,16 +547,6 @@ ContextBridge provides MVP and product engineering services that take concepts f
           "Add any custom content here. You can enable/disable this section as needed.",
       },
     ],
-    contact: {
-      enabled: true,
-      heading: "Get In Touch",
-      showEmail: true,
-      email: "contact@neuradyne.com",
-      showPhone: true,
-      phone: "+91 234 567 8900",
-      showAddress: true,
-      address: "Bhubaneswar, Odisha, India",
-    },
     social: {
       enabled: true,
       heading: "Connect With Us",
