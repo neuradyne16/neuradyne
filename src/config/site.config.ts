@@ -112,14 +112,14 @@ export interface SiteConfig {
       subtitle: string;
       backgroundColor: string; // e.g., "bg-blue-700"
     };
-    // stats: {
-    //   enabled: boolean;
-    //   items: Array<{
-    //     value: string;
-    //     label: string;
-    //     color?: string; // e.g., "text-blue-600"
-    //   }>;
-    // };
+    stats: {
+      enabled: boolean;
+      items: Array<{
+        value: string;
+        label: string;
+        color?: string; // e.g., "text-blue-600"
+      }>;
+    };
     sections: Array<{
       id: string;
       type: "mission" | "vision" | "values" | "team" | "custom";
@@ -233,7 +233,7 @@ export const siteConfig: SiteConfig = {
     ],
   },
   productCarousel: {
-    title: "Our Products",
+    title: "Product Highlights",
     items: [
       {
         title: "Omni Vision",
@@ -469,26 +469,26 @@ ContextBridge provides MVP and product engineering services that take concepts f
         "Neuradyne helps businesses imagine their future and make it real with AI, technology and people.",
       backgroundColor: "bg-blue-700",
     },
-    // stats: {
-    //   enabled: true,
-    //   items: [
-    //     {
-    //       value: "₹XXcr",
-    //       label: "2026 revenue",
-    //       color: "text-blue-600",
-    //     },
-    //     {
-    //       value: "XX",
-    //       label: "people",
-    //       color: "text-blue-600",
-    //     },
-    //     {
-    //       value: "50+",
-    //       label: "countries",
-    //       color: "text-blue-600",
-    //     },
-    //   ],
-    // },
+    stats: {
+      enabled: false,
+      items: [
+        {
+          value: "3+",
+          label: "AI Products Built",
+          color: "text-sky-600",
+        },
+        {
+          value: "10+",
+          label: "Clients Served",
+          color: "text-sky-600",
+        },
+        {
+          value: "2024",
+          label: "Founded",
+          color: "text-sky-600",
+        },
+      ],
+    },
     sections: [
       {
         id: "mission",

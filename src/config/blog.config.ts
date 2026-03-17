@@ -14,27 +14,27 @@ export type ContentBlock =
   | { type: "heading"; level: 1 | 2 | 3 | 4 | 5 | 6; text: string }
   | { type: "paragraph"; text: string }
   | {
-      type: "image";
-      src: StaticImageData | string;
-      alt: string;
-      caption?: string;
-    }
+    type: "image";
+    src: StaticImageData | string;
+    alt: string;
+    caption?: string;
+  }
   | { type: "code"; language: string; code: string; filename?: string }
   | { type: "quote"; text: string; author?: string }
   | { type: "list"; ordered: boolean; items: string[] }
   | { type: "link"; text: string; url: string }
   | {
-      type: "highlight";
-      text: string;
-      color?: "blue" | "green" | "yellow" | "red";
-    }
+    type: "highlight";
+    text: string;
+    color?: "blue" | "green" | "yellow" | "red";
+  }
   | { type: "divider" }
   | {
-      type: "callout";
-      variant: "info" | "warning" | "success" | "error";
-      title?: string;
-      text: string;
-    };
+    type: "callout";
+    variant: "info" | "warning" | "success" | "error";
+    title?: string;
+    text: string;
+  };
 
 export interface BlogPost {
   slug: string;

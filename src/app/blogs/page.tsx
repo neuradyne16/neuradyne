@@ -2,6 +2,17 @@ import { blogConfig } from "@/config/blog.config";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar, User } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: `${blogConfig.title} | Neuradyne`,
+  description: blogConfig.description,
+  openGraph: {
+    title: blogConfig.title,
+    description: blogConfig.description,
+    type: "website",
+  },
+};
 
 export default function BlogsPage() {
   const { title, description, posts } = blogConfig;

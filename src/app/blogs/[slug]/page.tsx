@@ -29,8 +29,18 @@ export async function generateMetadata({ params }: BlogPageProps) {
   }
 
   return {
-    title: post.title,
+    title: `${post.title} | Neuradyne Blog`,
     description: post.excerpt,
+    keywords: post.tags,
+    authors: post.author ? [{ name: post.author }] : undefined,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      publishedTime: post.date,
+      authors: post.author ? [post.author] : undefined,
+      tags: post.tags,
+    },
   };
 }
 
