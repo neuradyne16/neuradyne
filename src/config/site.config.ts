@@ -164,7 +164,7 @@ import logoEcho from "@/assets/logo-echo.png";
 import logoCelestial from "@/assets/logo-celestial.png";
 import logoPulse from "@/assets/logo-pulse.png";
 import logoApex from "@/assets/logo-apex.png";
-import serviceImage from "@/assets/omnivision.jpg";
+import serviceImage from "@/assets/omni-new.png";
 import mcpimage from "@/assets/mcp.jpg";
 import questionimage from "@/assets/AIgenlogo.jpeg";
 import ac2 from "@/assets/activity2.jpg";
