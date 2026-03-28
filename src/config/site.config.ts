@@ -423,7 +423,8 @@ ContextBridge provides MVP and product engineering services that take concepts f
         ],
       },
     ],
-    copyright: "© 2026 Neuradyne, Inc. All rights reserved.",
+    copyright:
+      "© 2026 Neuradyne AI systems private limited. All rights reserved.",
   },
   contact: {
     title: "Contact Us",
