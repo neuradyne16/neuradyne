@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import OmniVisionImage from "@/assets/omnivision.jpg";
+import OmniVisionImage from "@/assets/omni-new.png";
 
 export interface OmniVisionConfig {
   hero: {
