@@ -159,7 +159,7 @@ import fullLogo from "@/assets/fulllogo.png";
 import productImage from "@/assets/product-image.png";
 import logoIntellizo from "@/assets/intellizo.png";
 import iitb from "@/assets/rep-logo.png";
-import logoQuantum from "@/assets/logo-quantum.png";
+import SenkaiLab from "@/assets/logo-senkailab.png";
 import logoEcho from "@/assets/logo-echo.png";
 import logoCelestial from "@/assets/logo-celestial.png";
 import logoPulse from "@/assets/logo-pulse.png";
@@ -289,9 +289,9 @@ ContextBridge provides MVP and product engineering services that take concepts f
         website: "https://intellizosoftwares.com/",
       },
       {
-        src: logoQuantum,
-        alt: "Quantum Logo",
-        website: "https://www.quantum.com/",
+        src: SenkaiLab,
+        alt: "SenkaiLab Logo",
+        website: "https://www.linkedin.com/company/senkai-lab-pvt-ltd/posts/?feedView=all",
       },
       {
         src: logoEcho,
